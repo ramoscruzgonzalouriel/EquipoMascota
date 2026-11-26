@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascota Virtual Académica</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<div class="aplicacion">
+
+    <!-- MENU LATERAL -->
+    <aside class="menu-lateral">
+        <div class="logo">
+            <span class="logo-lobo">🐺</span>
+            <div>
+                <h2>Mi Lobito</h2>
+                <small>Asistente académico</small>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <button class="opcion activa" data-seccion="inicio">🏠 Inicio</button>
+            <button class="opcion" data-seccion="horarios">🕒 Mis horarios</button>
+            <button class="opcion" data-seccion="tareas">📚 Mis tareas</button>
+            <button class="opcion" data-seccion="calendario">📅 Calendario</button>
+            <button class="opcion" data-seccion="notificaciones">🔔 Notificaciones</button>
+            <button class="opcion" data-seccion="progreso">🏆 Mi progreso</button>
+            <button class="opcion" data-seccion="mascota">🐺 Mi mascota</button>
+        </nav>
+
+        <div class="mensaje-menu">
+            <span>💙</span>
+            <p>¡Un paso a la vez también es avanzar!</p>
+        </div>
+    </aside>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contenido">
+
+        <!-- ================= INICIO ================= -->
+        <section id="inicio" class="seccion activa">
+
+            <header class="encabezado">
+                <div>
+                    <p class="subtitulo">TU ESPACIO ACADÉMICO</p>
+                    <h1>¡Hola, estudiante! 👋</h1>
+                    <p>¿Listo para organizar tu día?</p>
+                </div>
+
+                <div class="fecha-actual">
+                    <span>📅</span>
+                    <p id="fechaActual"></p>
+                </div>
+            </header>
+
+            <!-- BIENVENIDA -->
+            <div class="bienvenida">
+                <div class="bienvenida-texto">
+                    <span class="etiqueta">TU COMPAÑERO DE ESTUDIOS</span>
+
+                    <h2>¡Hola! Soy <span id="nombreInicio">Lobito</span> 🐺</h2>
+
+                    <p id="mensajeMascota">
+                        Estoy aquí para acompañarte en tus actividades académicas.
+                    </p>
+
+                    <p class="estado-mascota">
+                        Estado: <strong id="emocionInicio">😊 Feliz</strong>
+                    </p>
+
+                    <div class="experiencia-contenedor">
+                        <div class="experiencia-texto">
+                            <span>Nivel <strong id="nivelInicio">1</strong></span>
+                            <span id="textoXPInicio">0 / 100 XP</span>
+                        </div>
+
+                        <div class="barra-experiencia">
+                            <div id="barraXPInicio"></div>
+                        </div>
+                    </div>
+
+                    <button class="boton-principal"
+                            onclick="mostrarSeccion('mascota')">
+                        Conocer a mi lobito
+                    </button>
+                </div>
+
+                <div class="bienvenida-mascota">
+                    <div class="circulo-mascota">
+                        <span id="lobitoInicio">🐺</span>
+                    </div>
+
+                    <div class="decoracion decoracion-uno">✦</div>
+                    <div class="decoracion decoracion-dos">♡</div>
+                </div>
+            </div>
+
+
+            <!-- TARJETAS DE RESUMEN -->
+            <div class="titulo-seccion">
+                <div>
+                    <h2>Resumen de tu actividad</h2>
+                    <p>Así va tu organización académica.</p>
+                </div>
+            </div>
+
+            <div class="tarjetas-resumen">
+
+                <div class="tarjeta">
+                    <div class="tarjeta-icono azul">📚</div>
+                    <div>
+                        <p>Tareas pendientes</p>
+                        <h3 id="totalTareas">0</h3>
+                    </div>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="tarjeta-icono morado">📅</div>
+                    <div>
+                        <p>Actividades registradas</p>
+                        <h3 id="totalActividades">0</h3>
+                    </div>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="tarjeta-icono amarillo">⭐</div>
+                    <div>
+                        <p>Experiencia acumulada</p>
+                        <h3 id="experienciaInicio">0 XP</h3>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- PANELES INFERIORES -->
+            <div class="paneles-inicio">
+
+                <div class="panel">
+                    <div class="panel-titulo">
+                        <div>
+                            <h2>Próximas actividades</h2>
+                            <p>No olvides tus pendientes.</p>
+                        </div>
+
+                        <button class="boton-texto"
+                                onclick="mostrarSeccion('tareas')">
+                            Ver todas
+                        </button>
+                    </div>
+
+                    <div id="proximasActividades">
+                        <p class="mensaje-vacio">
+                            Todavía no tienes actividades.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="panel panel-clases">
+                    <div class="panel-titulo">
+                        <div>
+                            <h2>Mis clases</h2>
+                            <p>Organiza tus horarios.</p>
+                        </div>
+
+                        <span class="icono-panel">🕒</span>
+                    </div>
+
+                    <div class="mensaje-vacio">
+                        <span>📖</span>
+                        <p>
+                            Registra tus materias, horarios y salones
+                            desde el apartado Mis horarios.
+                        </p>
+                    </div>
+
+                    <button class="boton-secundario"
+                            onclick="mostrarSeccion('horarios')">
+                        Ir a mis horarios
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= HORARIOS ================= -->
+        <section id="horarios" class="seccion">
+
+            <div class="encabezado-seccion">
+                <p class="subtitulo">ORGANIZACIÓN</p>
+                <h1>Mis horarios 🕒</h1>
+                <p>Organiza tus clases, aulas y edificios universitarios.</p>
+            </div>
+
+            <div class="horarios-resumen">
+
+                <div class="tarjeta">
+                    <div class="tarjeta-icono azul">📚</div>
+                    <div>
+                        <p>Materias registradas</p>
+                        <h3 id="totalMaterias">0</h3>
+                    </div>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="tarjeta-icono morado">🏫</div>
+                    <div>
+                        <p>Edificios utilizados</p>
+                        <h3 id="totalEdificios">0</h3>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- LISTA DE HORARIOS -->
+            <div class="panel panel-horarios">
+
+                <div class="panel-titulo">
+                    <div>
+                        <h2>Mi horario de clases</h2>
+                        <p>Consulta las materias de cada día.</p>
+                    </div>
+
+                    <button class="boton-principal"
+                            id="abrirFormularioHorario">
+                        + Agregar materia
+                    </button>
+                </div>
+
+                <label for="filtroDia">Seleccionar día</label>
+
+                <select id="filtroDia" class="filtro-dia">
+                    <option value="Todos">Todos los días</option>
+                    <option value="Lunes">Lunes</option>
+                    <option value="Martes">Martes</option>
+                    <option value="Miércoles">Miércoles</option>
+                    <option value="Jueves">Jueves</option>
+                    <option value="Viernes">Viernes</option>
+                    <option value="Sábado">Sábado</option>
+                    <option value="Domingo">Domingo</option>
+                </select>
+
+                <div id="listaHorarios" class="lista-horarios"></div>
+
+            </div>
+
+
+            <!-- FORMULARIO DE MATERIAS -->
+            <div id="formularioHorario"
+                 class="formulario-actividad oculto">
+
+                <div class="panel-titulo">
+                    <div>
+                        <p class="subtitulo">NUEVA CLASE</p>
+                        <h2 id="tituloFormularioHorario">
+                            Registrar materia 📚
+                        </h2>
+                    </div>
+
+                    <button id="cerrarFormularioHorario"
+                            class="boton-cerrar">
+                        ✕
+                    </button>
+                </div>
+
+                <label for="nombreMateria">Nombre de la materia</label>
+                <input type="text"
+                       id="nombreMateria"
+                       placeholder="Ej. Programación">
+
+                <label for="diaMateria">Día de la semana</label>
+                <select id="diaMateria">
+                    <option value="Lunes">Lunes</option>
+                    <option value="Martes">Martes</option>
+                    <option value="Miércoles">Miércoles</option>
+                    <option value="Jueves">Jueves</option>
+                    <option value="Viernes">Viernes</option>
+                    <option value="Sábado">Sábado</option>
+                    <option value="Domingo">Domingo</option>
+                </select>
+
+                <div class="campos-hora">
+                    <div>
+                        <label for="horaInicio">Hora de inicio</label>
+                        <input type="time" id="horaInicio">
+                    </div>
+
+                    <div>
+                        <label for="horaFin">Hora de finalización</label>
+                        <input type="time" id="horaFin">
+                    </div>
+                </div>
+
+                <label for="aulaMateria">Salón o aula</label>
+                <input type="text"
+                       id="aulaMateria"
+                       placeholder="Ej. Aula 204">
+
+                <label for="edificioMateria">Edificio o complejo</label>
+                <input type="text"
+                       id="edificioMateria"
+                       placeholder="Ej. Edificio B">
+
+                <label for="profesorMateria">Profesor (opcional)</label>
+                <input type="text"
+                       id="profesorMateria"
+                       placeholder="Nombre del profesor">
+
+                <div class="botones-formulario">
+                    <button class="boton-principal" id="guardarHorario">
+                        Guardar materia
+                    </button>
+
+                    <button class="boton-secundario" id="cancelarHorario">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ================= TAREAS ================= -->
+        <section id="tareas" class="seccion">
+
+            <div class="encabezado-seccion">
+                <p class="subtitulo">TUS RESPONSABILIDADES</p>
+                <h1>Mis tareas 📚</h1>
+                <p>Consulta tus actividades ordenadas por cercanía de fecha y nivel de importancia.</p>
+            </div>
+
+            <div class="panel">
+
+                <div class="panel-titulo">
+                    <div>
+                        <h2>Actividades pendientes</h2>
+                        <p>¡Vamos a cumplir tus objetivos!</p>
+                    </div>
+
+                    <button class="boton-principal"
+                            onclick="irAgregarActividad()">
+                        + Agregar actividad
+                    </button>
+                </div>
+
+                <div id="listaPendientes"></div>
+
+            </div>
+
+            <div class="panel panel-separado">
+                <h2>Actividades completadas</h2>
+                <p class="descripcion-panel">
+                    Tus logros también cuentan.
+                </p>
+
+                <div id="listaCompletadas"></div>
+            </div>
+
+        </section>
+
+
+        <!-- ================= CALENDARIO ================= -->
+        <section id="calendario" class="seccion">
+
+            <div class="encabezado-seccion">
+                <p class="subtitulo">PLANIFICA TU TIEMPO</p>
+                <h1>Mi calendario 📅</h1>
+                <p>Agrega tus tareas, exámenes y fechas importantes.</p>
+            </div>
+
+            <div class="calendario-contenedor">
+
+                <div class="calendario-panel">
+
+                    <div class="calendario-encabezado">
+                        <button id="mesAnterior">❮</button>
+                        <h2 id="mesActual"></h2>
+                        <button id="mesSiguiente">❯</button>
+                    </div>
+
+                    <div class="dias-semana">
+                        <div>Lun</div>
+                        <div>Mar</div>
+                        <div>Mié</div>
+                        <div>Jue</div>
+                        <div>Vie</div>
+                        <div>Sáb</div>
+                        <div>Dom</div>
+                    </div>
+
+                    <div id="diasCalendario"
+                         class="dias-calendario"></div>
+
+                    <div class="leyenda-calendario">
+                        <span>
+                            <i class="punto-hoy"></i> Hoy
+                        </span>
+
+                        <span>
+                            <i class="punto-actividad"></i>
+                            Tiene actividades
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="actividades-dia">
+
+                    <div class="panel-titulo">
+                        <div>
+                            <p class="subtitulo">AGENDA</p>
+                            <h2 id="tituloDia">Actividades del día</h2>
+                        </div>
+
+                        <span class="icono-panel">📝</span>
+                    </div>
+
+                    <div id="listaActividadesDia"></div>
+
+                    <button class="boton-principal boton-agregar"
+                            id="abrirFormulario">
+                        + Agregar actividad
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- FORMULARIO DE ACTIVIDADES -->
+            <div id="formularioActividad"
+                 class="formulario-actividad oculto">
+
+                <div class="panel-titulo">
+                    <div>
+                        <p class="subtitulo">NUEVO REGISTRO</p>
+                        <h2>Agregar actividad ✨</h2>
+                    </div>
+
+                    <button id="cerrarFormulario"
+                            class="boton-cerrar">
+                        ✕
+                    </button>
+                </div>
+
+                <label for="nombreActividad">
+                    Nombre de la actividad
+                </label>
+
+                <input type="text"
+                       id="nombreActividad"
+                       placeholder="Ej. Entregar tarea de programación">
+
+                <label for="fechaActividad">
+                    Fecha de entrega o realización
+                </label>
+
+                <input type="date" id="fechaActividad">
+
+                <label for="descripcionActividad">Descripción</label>
+
+                <textarea id="descripcionActividad"
+                          placeholder="Escribe los detalles de tu actividad..."></textarea>
+
+                <label for="tipoActividad">Tipo de actividad</label>
+                <select id="tipoActividad">
+                    <option value="Tarea">📚 Tarea</option>
+                    <option value="Examen">📝 Examen</option>
+                    <option value="Proyecto">💻 Proyecto</option>
+                    <option value="Entrega">📦 Entrega</option>
+                    <option value="Personal">💙 Personal</option>
+                </select>
+
+                <!-- Selector de Importancia -->
+                <label for="importanciaActividad">Nivel de importancia</label>
+                <select id="importanciaActividad">
+                    <option value="Casual">🟢 Casual</option>
+                    <option value="Importante">🟡 Importante</option>
+                    <option value="Alta importancia">🔴 Alta importancia</option>
+                </select>
+
+                <div class="botones-formulario">
+                    <button class="boton-principal" id="guardarActividad">
+                        Guardar actividad
+                    </button>
+
+                    <button class="boton-secundario" id="cancelarActividad">
+                        Cancelar
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= NOTIFICACIONES ================= -->
+        <section id="notificaciones" class="seccion">
+
+            <div class="encabezado-seccion">
+                <p class="subtitulo">MANTENTE AL DÍA</p>
+                <h1>Notificaciones 🔔</h1>
+                <p>Avisos importantes sobre tus actividades y prioridades.</p>
+            </div>
+
+            <div class="panel">
+                <div id="listaNotificaciones">
+                    <!-- Se llena dinámicamente con app.js -->
+                    <div class="mensaje-vacio">
+                        <span>🔔</span>
+                        <h3>¡Todo tranquilo por ahora!</h3>
+                        <p>Aquí aparecerán los recordatorios de tus tareas según su importancia.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROGRESO ================= -->
+        <section id="progreso" class="seccion">
+
+            <div class="encabezado-seccion">
+                <p class="subtitulo">CADA LOGRO CUENTA</p>
+                <h1>Mi progreso 🏆</h1>
+                <p>Observa cuánto has avanzado junto a tu lobito.</p>
+            </div>
+
+            <div class="tarjetas-resumen">
+
+                <div class="tarjeta">
+                    <div class="tarjeta-icono amarillo">⭐</div>
+                    <div>
+                        <p>Experiencia</p>
+                        <h3 id="experienciaProgreso">0 XP</h3>
+                    </div>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="tarjeta-icono azul">🏆</div>
+                    <div>
+                        <p>Nivel actual</p>
+                        <h3 id="nivelProgreso">1</h3>
+                    </div>
+                </div>
+
+                <div class="tarjeta">
+                    <div class="tarjeta-icono verde">✅</div>
+                    <div>
+                        <p>Completadas</p>
+                        <h3 id="completadasProgreso">0</h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel">
+                <h2>Experiencia de tu lobito</h2>
+
+                <div class="barra-experiencia barra-grande">
+                    <div id="barraXPProgreso"></div>
+                </div>
+
+                <p id="textoXPProgreso">0 / 100 XP</p>
+            </div>
+
+        </section>
+
+
+        <!-- ================= MASCOTA ================= -->
+        <section id="mascota" class="seccion">
+
+            <div class="encabezado-seccion">
+                <p class="subtitulo">TU COMPAÑERO</p>
+                <h1>Mi mascota 🐺</h1>
+                <p>Personaliza a tu lobito y acompáñalo en su aventura.</p>
+            </div>
+
+            <div class="panel personalizacion">
+
+                <div class="mascota-personalizacion">
+                    <div class="circulo-mascota">
+                        <span id="lobitoPersonalizacion">🐺</span>
+                    </div>
+
+                    <h2 id="nombrePersonalizacion">Lobito</h2>
+                    <p id="emocionPersonalizacion">😊 Feliz</p>
+                </div>
+
+                <div class="campos-personalizacion">
+
+                    <label for="nombreMascota">
+                        Nombre de tu mascota
+                    </label>
+
+                    <input type="text"
+                           id="nombreMascota"
+                           placeholder="Escribe un nombre">
+
+                    <label for="accesorioMascota">Accesorio</label>
+
+                    <select id="accesorioMascota">
+                        <option value="">Sin accesorio</option>
+                        <option value="💙">Corazón azul 💙</option>
+                        <option value="⭐">Estrella ⭐</option>
+                        <option value="👑">Corona 👑</option>
+                    </select>
+
+                    <button class="boton-principal" id="guardarMascota">
+                        Guardar personalización
+                    </button>
+
+                    <button class="boton-secundario" id="botonDescansar">
+                        💤 Hacer que mi lobito descanse
+                    </button>
+
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
